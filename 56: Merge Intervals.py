@@ -16,8 +16,6 @@ class Solution:
         i = 0
         l = len(intr)
         while i < l-1:
-            if intr[i] > intr[i+1]:
-                intr[i], intr[i+1] = intr[i+1], intr[i]
                 
             if intr[i][1] >= intr[i+1][0]:
                 intr[i][0] = min(intr[i][0], intr[i+1][0])
