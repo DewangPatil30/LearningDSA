@@ -1,4 +1,5 @@
 """
+  min_index, max_index, max_element = 0, n-1, arr[n-1]
   For i = 0 to n-1            
     If 'i' is even
        arr[i] += arr[max_index] % max_element * max_element 
