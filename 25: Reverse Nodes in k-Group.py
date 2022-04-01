@@ -11,6 +11,7 @@
       
   LeetCode 25: https://leetcode.com/problems/reverse-nodes-in-k-group/
   NeetCode: https://www.youtube.com/watch?v=1UOPsfP85V4
+  Explaination: https://takeuforward.org/data-structure/reverse-linked-list-in-groups-of-size-k/ 
 """
 
 class Solution:
