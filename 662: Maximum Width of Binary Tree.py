@@ -1,9 +1,29 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+"""
+Approach:
+
+    1. By applying the indexing to each node: TC: O(N)    SC: O(N)
+    
+        a. Create map m
+        b. Create width fn for dfs
+        c. We will use concept of children node indexes of root is: 
+            for left child: 2 * rootInd+1
+            for right child: 2 * rootInd+2
+    
+        d. We will only store the index of the first node of each level:
+            ie, if level not in map: map[level] = pos
+        e. each time calculate    maxw[0] = max( maxw[0], pos - map[level] + 1)
+        f. Calls for dfs: 
+            width(root.left, level+1, 2*pos+1) for left
+            width(root.right, level+1, 2*pos+2) for right
+            
+         Return maxw[0]
+         
+    There is also the better sol
+    
+    LeetCode 662: https://leetcode.com/problems/maximum-width-of-binary-tree/
+    YT: https://youtu.be/ZbybYvcVLks
+"""
+
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
