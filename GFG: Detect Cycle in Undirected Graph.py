@@ -16,6 +16,10 @@
             e. inside while q, pop(0) and mark node as visited 
             f. loop for all connections of node and check if visited or not if visited than check with prev, if child != prev return True
             
+            
+         2. Using DFS: Same to same as BFS just pop(0) -> pop()
+         
+         
     GFG: https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1#
     YT: https://www.youtube.com/watch?v=A8ko93TyOns
 """
