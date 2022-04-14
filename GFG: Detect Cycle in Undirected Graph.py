@@ -17,36 +17,52 @@
             f. loop for all connections of node and check if visited or not if visited than check with prev, if child != prev return True
             
             
-         2. Using DFS: Same to same as BFS just pop(0) -> pop()
+         2. Using DFS: Same to same as BFS just in loop call recursion and take 'prev' arg in fn:  
          
          
     GFG: https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1#
     YT: https://www.youtube.com/watch?v=A8ko93TyOns
 """
 
-def isCycle(self, v, adj):
-        
-        adj = {i:k for i, k in enumerate(adj)}
-        def hasCycle(node, adj):
+########### BFS ############
+  def hasCycle(node, adj):
+        visited[node] = True
+        q = [[node, -1]]
+
+        while q:
+            node, prev = q.pop(0)
             visited[node] = True
-            
-            q = [[node, -1]]
-            while q:
-                
-                node, prev = q.pop(0)
-                visited[node] = True
-                for c in adj[node]:
-                    if not visited[c]:
-                        q.append([c, node])
-                    elif c == prev: continue
-                    else: return True
-                        
-                        
-        visited = [False]*v
-        for i in range(v):
-            if not visited[i]:
-                if hasCycle(i, adj): return True
-                
-        return False
-    
+            for c in adj[node]:
+                if not visited[c]:
+                    q.append([c, node])
+                elif c != prev: return True
+
+      visited = [False]*v
+      for i in range(v):
+          if not visited[i]:
+              if hasCycle(i, adj): return True
+
+      return False
+
+
+########### DFS #############
+def hasCycleDFS(node, prev):
+
+    visited[node] = True
+    for c in adj[node]:
+        if not visited[c]:
+            if hasCycleDFS(c, node): return True
+        elif c != prev:
+            return True
+
+    return False
+
+
+    res = [False]
+    visited = [False]*v
+    for i in range(v):
+        if not visited[i]:
+            if hasCycleDFS(i, -1): return True
+
+    return False
     
